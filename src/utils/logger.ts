@@ -1,14 +1,13 @@
-import { createLogger, transports, format } from "winston";
+import winston from "winston";
 
-const logger = createLogger({
+const logger = winston.createLogger({
   level: "info",
-  format: format.combine(
-    format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
-    format.printf((info) => `[${info.timestamp}] ${info.level.toUpperCase()}: ${info.message}`)
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
   ),
   transports: [
-    new transports.Console(),
-    new transports.File({ filename: "logs/error.log", level: "error" }),
+    new winston.transports.Console(), // ✅ Only console logs (Vercel-compatible)
   ],
 });
 
