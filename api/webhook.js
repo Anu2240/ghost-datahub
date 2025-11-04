@@ -1,14 +1,26 @@
-import express from "express";
 import { Telegraf } from "telegraf";
+import express from "express";
 
 const app = express();
 app.use(express.json());
 
+// Initialize bot
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN);
 
-bot.start((ctx) => ctx.reply("👋 Hey! Bot is active and running on Vercel."));
-bot.on("text", (ctx) => ctx.reply(`You said: ${ctx.message.text}`));
+// --- Basic commands ---
+bot.start((ctx) => {
+  ctx.reply(
+    "👋 Welcome to GHost DataHub!\n\nBot is live and running on Vercel ✅"
+  );
+});
 
+bot.hears("hi", (ctx) => ctx.reply("Hey there! 👻"));
+
+bot.on("text", (ctx) => {
+  ctx.reply(`You said: ${ctx.message.text}`);
+});
+
+// --- Webhook endpoint ---
 app.post("/api/webhook", async (req, res) => {
   try {
     await bot.handleUpdate(req.body);
@@ -19,4 +31,5 @@ app.post("/api/webhook", async (req, res) => {
   }
 });
 
+// Required export for Vercel
 export default app;
