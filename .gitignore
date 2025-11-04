@@ -1,0 +1,89 @@
+# =========================================
+# 🚀 GHOST DATAHUB PROJECT GITIGNORE
+# =========================================
+
+# Node.js dependencies & logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# Firebase related
+.firebase/
+firebase-debug.log
+firestore-debug.log
+serviceAccountKey.json
+*.firebase.json
+
+# Logs
+logs/
+*.log
+winston.log
+
+# IDEs & editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.iml
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+coverage/
+*.test.ts
+__tests__/
+jest-cache/
+jest.config.js
+
+# Cache / Temp
+.cache/
+temp/
+tmp/
+.vercel_cache/
+.vercel_build_cache/
+
+# Vercel
+.vercel
+.vercel_build_output
+
+# Backup & misc
+*.bak
+*.tmp
+*.old
+*.orig
+
+# Keys & certificates
+*.pem
+*.key
+*.crt
+
+# TypeScript incremental cache
+tsconfig.tsbuildinfo
+
+# =========================================
+# ✅ SAFE TO PUSH FILES:
+# - src/
+# - package.json
+# - tsconfig.json
+# - vercel.json
+# =========================================
